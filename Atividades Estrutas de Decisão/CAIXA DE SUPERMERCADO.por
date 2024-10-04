@@ -3,45 +3,72 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro tipo_de_caixa,i
-		real total = 0, preco = 0
+		inteiro tipo_de_caixa, i , contador = 0
+		real total = 0.0, preco = 0.0
 		logico tem_produto = falso
-		escreva("CAIXA DE SUPERMERCADO")
+		caracter repetir = 'N', resposta = 'S'
+		
+		escreva("CAIXA DE SUPERMERCADO \n")
 
-		escreva("Informe qual caixa voce deseja usar \n")
+		escreva("Informe o qual caixa deseja usar \n")
 		escreva("(1) para caixa rápido até 10 produtos \n")
 		escreva("(2) para caixa normal ilimitado \n")
 		leia(tipo_de_caixa)
 
-		escolha (tipo_de_caixa)
+		escolha(tipo_de_caixa)
 		{
-			caso 1 :
-			{ 
-			     escreva("Bem Vindo ao caixa normal")
-				pare(i = 1; i <= 10; i++)
-				{
-				  escreva("preço do " + i + "produto") 
-				  leia(preco)
-
-				  total = total + preco
-
-				  escreva("Voce ainda tem pordutos para serem passados?")
-				  leia(tem_produto)
-				  se(tem_produto == falso)
-				  {
-
-				   i = 11
-				  }
-				}
-			}
-			caso 2:  escreva("Escolheu 2")pare
-			caso contrario:
+			caso 1 : 
 			{
-				escreva("OPÇÃO INVALIDA")
+				faca
+				{
+					escreva("Bem vindo ao caixa rápido de até 10 produtos \n")
+					para(i = 1; i <= 10; i++)
+					{
+						escreva("Preço do " + i + " produto")
+						leia(preco)
+
+						total = total + preco
+	
+						escreva("Você ainda tem produto no carrinho? \n")
+						leia(tem_produto)
+	
+						se(tem_produto ==falso)
+						{
+							i = 11
+						}
+					}
+					escreva("O TOTAL DA COMPRA É DE: R$" + total + "\n")
+					escreva("Deseja trocar de caixa? (s)Sim ou (n)Não")
+					leia(repetir)
+				}
+				enquanto(repetir == 'N' ou repetir == 'n')
 				limpa()
-				inicio
+				inicio()
+				pare
+			}
+			
+			
+			caso 2 :
+			{
+			 
+				escreva("Bem Vindo ao caixa ilimitado \n")
+				enquanto( resposta == 's' ou resposta == 'S')
+				{
+							contador++
+					
+							escreva("Preço do " + contador + " produto \n")
+							leia(preco)
+	
+							total = total + preco
+		
+							escreva("Deseja adicionar um novo produto ? (s)sim ou (n)não \n")
+							leia(resposta)
+				}
+	
+				escreva("O TOTAL DA COMPRA É DE: R$" + total + "\n")pare
 			}
 		}
+		
 		
 		
 	}
@@ -51,9 +78,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 451; 
+ * @POSICAO-CURSOR = 761; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {tipo_de_caixa, 6, 10, 13}-{i, 6, 25, 1}-{contador, 6, 29, 8}-{total, 7, 7, 5}-{preco, 7, 20, 5}-{tem_produto, 8, 9, 11}-{repetir, 9, 11, 7}-{resposta, 9, 26, 8};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
